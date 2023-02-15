@@ -17,34 +17,42 @@ import avatar8 from "../../assets/images/avatar-8.jpg";
 
 export const myData = [
   {
+    name: "CutieGirl",
     imgSrc: showcase1,
     avatarSrc: avatar1,
   },
   {
+    name: "ButterFLy",
     imgSrc: showcase2,
     avatarSrc: avatar2,
   },
   {
+    name: "NorseQueen",
     imgSrc: showcase3,
     avatarSrc: avatar3,
   },
   {
+    name: "BigBull",
     imgSrc: showcase4,
     avatarSrc: avatar4,
   },
   {
+    name: "Angel",
     imgSrc: showcase5,
     avatarSrc: avatar5,
   },
   {
+    name: "CrazyOne",
     imgSrc: showcase6,
     avatarSrc: avatar6,
   },
   {
+    name: "TheGame",
     imgSrc: showcase7,
     avatarSrc: avatar7,
   },
   {
+    name: "InterContinental",
     imgSrc: showcase8,
     avatarSrc: avatar8,
   },

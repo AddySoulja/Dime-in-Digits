@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { myData } from "./data";
-import { sliderInit } from "./slider";
+// import { sliderInit } from "./slider";
 
 const Card = () => {
-  const sliders = document.querySelectorAll("[data-slider]");
+  // const sliders = document.querySelectorAll("[data-slider]");
 
-
-
-  useEffect(() => sliderInit(sliders))
+  // useEffect(() => sliderInit(sliders))
   return (
     <>
       <ul className="slider-container" data-slider-container>
@@ -53,7 +51,7 @@ const Card = () => {
                 <p className="label-md card-author">
                   by{" "}
                   <a href="/" className="link">
-                    @CutieGirl
+                    {item.name}
                   </a>
                 </p>
 
