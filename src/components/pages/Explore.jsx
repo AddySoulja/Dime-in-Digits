@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import "../../App.css";
+import BackTopBtn from "../common/BackTopBtn";
 
 const Explore = () => {
   return (
@@ -680,6 +681,7 @@ const Explore = () => {
         </article>
       </main>
       <Footer />
+      <BackTopBtn />
     </>
   );
 };
