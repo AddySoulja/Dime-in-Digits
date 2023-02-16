@@ -17,41 +17,57 @@ import avatar8 from "../../assets/images/avatar-8.jpg";
 
 export const myData = [
   {
+    key: 1,
+    title: "Digital Collection",
     name: "CutieGirl",
     imgSrc: showcase1,
     avatarSrc: avatar1,
   },
   {
+    key: 2,
+    title: "GIF Collection",
     name: "ButterFLy",
     imgSrc: showcase2,
     avatarSrc: avatar2,
   },
   {
+    key: 3,
+    title: "Sports Collection",
     name: "NorseQueen",
     imgSrc: showcase3,
     avatarSrc: avatar3,
   },
   {
+    key: 4,
+    title: "Photography Collection",
     name: "BigBull",
     imgSrc: showcase4,
     avatarSrc: avatar4,
   },
   {
+    key: 5,
+    title: "Illustrations Collection",
     name: "Angel",
     imgSrc: showcase5,
     avatarSrc: avatar5,
   },
   {
+    key: 6,
+    title: "Animations Collection",
     name: "CrazyOne",
     imgSrc: showcase6,
     avatarSrc: avatar6,
   },
   {
+    key: 7,
+    title: "Personal Collection",
     name: "TheGame",
     imgSrc: showcase7,
     avatarSrc: avatar7,
   },
   {
+    key: 8,
+    title: "Global Collection",
     name: "InterContinental",
     imgSrc: showcase8,
     avatarSrc: avatar8,
