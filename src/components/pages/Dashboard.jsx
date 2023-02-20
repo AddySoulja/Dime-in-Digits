@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../common/Navbar";
-import Footer from "../common/Footer";
+import Navbar from "../common/navbar/Navbar";
+import Footer from "../common/footer/Footer";
 import "../../App.css";
 import { Link } from "react-router-dom";
-import BackTopBtn from "../common/BackTopBtn";
+import BackTopBtn from "../common/backToTop/BackTopBtn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faForward } from "@fortawesome/free-solid-svg-icons";
-import Collection from "../product/Collection";
+import Carousel from "../product/Carousel";
 
 const Dashboard = () => {
   return (
@@ -56,7 +56,7 @@ const Dashboard = () => {
                 </a>
               </div>
 
-              <Collection />
+              <Carousel />
               <a href="/" className="btn-link link:hover">
                 <span className="span">See More</span>
 

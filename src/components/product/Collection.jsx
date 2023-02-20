@@ -1,159 +1,113 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { myData } from "../product/data";
+import rupee from "../../assets/images/rupee.png";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { myData } from "./data";
-const Collection = () => {
-  const [slidesOnDisplay, setSlidesOnDisplay] = useState([]);
-  const [currSlidePos, setCurrSlidePos] = useState({
-    start: 0,
-    end: 4,
-  });
-  const [sliderStyle, setSliderStyle] = useState({
-    transform: "",
-  });
-  const setCurrentSlide = useCallback(() => {
-    if (currSlidePos.start > myData.length - 1) {
-      setCurrSlidePos({ start: 0, end: 4 });
-    } else if (currSlidePos.start < 0) {
-      setCurrSlidePos({ start: myData.length - 4, end: myData.length });
-    }
-    let arr = myData.slice(currSlidePos.start, currSlidePos.end);
-    setSlidesOnDisplay(arr);
-  }, [currSlidePos]);
+import {
+  faBoltLightning,
+  faStopwatch,
+} from "@fortawesome/free-solid-svg-icons";
 
-  useEffect(() => {
-    setCurrentSlide();
-  }, [setCurrentSlide]);
+const Collection = ({ setItem }) => {
+  return myData.map((item) => (
+    <Link to={`/explore/id:${item.key}`}>
+      <li onClick={() => setItem(item)}>
+        <div class="discover-card card">
+          <div
+            class="card-banner img-holder"
+            style={{ width: "500", height: "500" }}
+          >
+            <img
+              src={item.imgSrc}
+              width="500"
+              height="500"
+              loading="lazy"
+              alt="Genuine Undead /3902"
+              class="img-cover"
+            ></img>
 
-  const moveSliderItem = () => {
-    setSliderStyle({ transform: `translateX(-${300}px)` });
-  };
-  // useEffect(() => {
-  //   moveSliderItem();
-  // });
-  const slideNext = () => {
-    setCurrSlidePos({
-      start: currSlidePos.start + 1,
-      end: currSlidePos.end + 1,
-    });
-    // moveSliderItem();
-  };
-  const slidePrev = () => {
-    setCurrSlidePos({
-      start: currSlidePos.start - 1,
-      end: currSlidePos.end - 1,
-    });
-    // moveSliderItem();
-  };
+            <button class="btn btn-primary">
+              <FontAwesomeIcon
+                icon={faBoltLightning}
+                name="flash"
+                aria-hidden="true"
+              ></FontAwesomeIcon>
 
-  // useEffect(() => {
-  //   window.addEventListener("slide", moveSliderItem);
-  //   return window.removeEventListener("slide", moveSliderItem);
-  // }, [moveSliderItem]);
+              <span class="span">Place Bid</span>
+            </button>
+            {item.isLimited ? (
+              <div className="countdown">
+                <FontAwesomeIcon
+                  icon={faStopwatch}
+                  name="time-outline"
+                  aria-hidden="true"
+                ></FontAwesomeIcon>
 
-  // const sliderInterval = () => {
-  //   setTimeout(slideNext, 3000);
-  // };
-
-  // // useEffect(() => {
-  // //   sliderInterval();
-  // //   return clearTimeout(sliderInterval);
-  // // });
-
-  // useEffect(() => setCurrentSlide(), [setCurrentSlide]);
-
-  return (
-    <>
-      {" "}
-      <div className="slider" data-slider>
-        <ul
-          className="slider-container"
-          style={sliderStyle}
-          data-slider-container
-        >
-          {slidesOnDisplay.map((item) => (
-            <li className="slider-item" key={item.key}>
-              <div className="collection-card card">
-                <figure
-                  className="card-banner img-holder"
-                  style={{ width: "500", height: "500" }}
-                >
-                  <img
-                    src={item.imgSrc}
-                    width="500"
-                    height="500"
-                    loading="lazy"
-                    alt="Digital Collection"
-                    className="img-cover"
-                  ></img>
-                </figure>
-
-                <div className="card-content">
-                  <div className="card-profile">
-                    <img
-                      src={item.avatarSrc}
-                      width="64"
-                      height="64"
-                      loading="lazy"
-                      alt="CutieGirl profile"
-                    ></img>
-
-                    <ion-icon
-                      name="checkmark-circle"
-                      aria-hidden="true"
-                    ></ion-icon>
-                  </div>
-
-                  <h3 className="title-md card-title">
-                    <a href="/" className="link:hover">
-                      {item.title}
-                    </a>
-                  </h3>
-
-                  <p className="label-md card-author">
-                    by{" "}
-                    <a href="/" className="link">
-                      {item.name}
-                    </a>
-                  </p>
-
-                  <p className="card-text">25 Items</p>
-                </div>
+                <span class="span">5d 04h 18m 04s</span>
               </div>
-            </li>
-          ))}
-        </ul>
+            ) : (
+              ""
+            )}
+          </div>
 
-        <button
-          className="slider-btn prev"
-          aria-label="Slide to previous item"
-          data-slider-prev
-          onClick={slidePrev}
-        >
-          <FontAwesomeIcon
-            icon={faBackward}
-            style={{ color: "#FFFFFF" }}
-            name="chevron-back-sharp"
-            aria-hidden="true"
-          ></FontAwesomeIcon>
-        </button>
+          <div class="card-profile">
+            <img
+              src={item.avatarSrc}
+              width="32"
+              height="32"
+              loading="lazy"
+              alt="StreetBoy profile"
+              class="img"
+            ></img>
 
-        <button
-          className="slider-btn next"
-          aria-label="Slide to next item"
-          data-slider-next
-          onClick={slideNext}
-        >
-          <FontAwesomeIcon
-            icon={faForward}
-            style={{ color: "#FFFFFF" }}
-            name="chevron-forward-sharp"
-            aria-hidden="true"
-          ></FontAwesomeIcon>
-        </button>
-      </div>
-    </>
-  );
+            <a href="/" class="link:hover">
+              @{item.name}
+            </a>
+          </div>
+
+          <h3 class="title-sm card-title">
+            <a href="/" class="link:hover">
+              {item.title}
+            </a>
+          </h3>
+
+          <div class="card-meta">
+            <div>
+              <p>Price</p>
+
+              <div class="card-price">
+                <img
+                  src={rupee}
+                  width="16"
+                  height="24"
+                  loading="lazy"
+                  alt="ethereum icon"
+                ></img>
+
+                <span class="span">3.5</span>
+              </div>
+            </div>
+
+            <div>
+              <p>Highest Bid</p>
+
+              <div class="card-price">
+                <img
+                  src={rupee}
+                  width="16"
+                  height="24"
+                  loading="lazy"
+                  alt="ethereum icon"
+                ></img>
+
+                <span class="span">3.55</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </Link>
+  ));
 };
 
 export default Collection;

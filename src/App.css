@@ -521,6 +521,27 @@ body {
 
 
 
+.input-bid-block {
+    width: 30%;
+    height: 40px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+                          
+            
+                          
+.input-bid {
+    width: 30%;
+    height: 40px;
+    background-color: white;
+    border-radius: 18px;
+    margin-left: 8px;
+    padding-left: 10px;
+    font-weight: 1000;
+}
+                        
 
 
 /*-----------------------------------*\

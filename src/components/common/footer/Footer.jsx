@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [activeList, setActiveList] = useState({
+    uno: false,
+    dos: false,
+    tres: false,
+    cuatro: false,
+  });
+
   return (
     <>
       <section className="section qna" aria-label="question and answer">
@@ -14,8 +21,20 @@ const Footer = () => {
 
           <ul className="qna-list">
             <li className="qna-item">
-              <div className="qna-card" data-accordion>
-                <button className="qna-btn" data-accordion-btn>
+              <div
+                className={`${activeList.uno ? "active " : ""}qna-card`}
+                data-accordion
+              >
+                <button
+                  className={`${activeList.uno ? "active " : ""}qna-btn`}
+                  data-accordion-btn
+                  onClick={() =>
+                    setActiveList({
+                      ...activeList,
+                      uno: !activeList.uno,
+                    })
+                  }
+                >
                   <h3 className="title-sm">How does it work ?</h3>
 
                   <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
@@ -35,8 +54,20 @@ const Footer = () => {
             </li>
 
             <li className="qna-item">
-              <div className="qna-card" data-accordion>
-                <button className="qna-btn" data-accordion-btn>
+              <div
+                className={`${activeList.dos ? "active " : ""}qna-card`}
+                data-accordion
+              >
+                <button
+                  className={`${activeList.dos ? "active " : ""}qna-btn`}
+                  data-accordion-btn
+                  onClick={() =>
+                    setActiveList({
+                      ...activeList,
+                      dos: !activeList.dos,
+                    })
+                  }
+                >
                   <h3 className="title-sm">
                     Do I need a designer to use Dime-in-Digits ?
                   </h3>
@@ -55,8 +86,20 @@ const Footer = () => {
             </li>
 
             <li className="qna-item">
-              <div className="qna-card" data-accordion>
-                <button className="qna-btn" data-accordion-btn>
+              <div
+                className={`${activeList.tres ? "active " : ""}qna-card`}
+                data-accordion
+              >
+                <button
+                  className={`${activeList.tres ? "active " : ""}qna-btn`}
+                  data-accordion-btn
+                  onClick={() =>
+                    setActiveList({
+                      ...activeList,
+                      tres: !activeList.tres,
+                    })
+                  }
+                >
                   <h3 className="title-sm">
                     What do I need to do to start selling ?
                   </h3>
@@ -75,8 +118,20 @@ const Footer = () => {
             </li>
 
             <li className="qna-item">
-              <div className="qna-card" data-accordion>
-                <button className="qna-btn" data-accordion-btn>
+              <div
+                className={`${activeList.cuatro ? "active " : ""}qna-card`}
+                data-accordion
+              >
+                <button
+                  className={`${activeList.cuatro ? "active " : ""}qna-btn`}
+                  data-accordion-btn
+                  onClick={() =>
+                    setActiveList({
+                      ...activeList,
+                      cuatro: !activeList.cuatro,
+                    })
+                  }
+                >
                   <h3 className="title-sm">
                     What happens when I receive an order ?
                   </h3>

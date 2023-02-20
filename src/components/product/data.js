@@ -22,6 +22,7 @@ export const myData = [
     name: "CutieGirl",
     imgSrc: showcase1,
     avatarSrc: avatar1,
+    isLimited: true,
   },
   {
     key: 2,
@@ -29,6 +30,7 @@ export const myData = [
     name: "ButterFLy",
     imgSrc: showcase2,
     avatarSrc: avatar2,
+    isLimited: true,
   },
   {
     key: 3,
@@ -36,6 +38,7 @@ export const myData = [
     name: "NorseQueen",
     imgSrc: showcase3,
     avatarSrc: avatar3,
+    isLimited: true,
   },
   {
     key: 4,
@@ -43,6 +46,7 @@ export const myData = [
     name: "BigBull",
     imgSrc: showcase4,
     avatarSrc: avatar4,
+    isLimited: false,
   },
   {
     key: 5,
@@ -50,6 +54,7 @@ export const myData = [
     name: "Angel",
     imgSrc: showcase5,
     avatarSrc: avatar5,
+    isLimited: false,
   },
   {
     key: 6,
@@ -57,6 +62,7 @@ export const myData = [
     name: "CrazyOne",
     imgSrc: showcase6,
     avatarSrc: avatar6,
+    isLimited: true,
   },
   {
     key: 7,
@@ -64,6 +70,7 @@ export const myData = [
     name: "TheGame",
     imgSrc: showcase7,
     avatarSrc: avatar7,
+    isLimited: false,
   },
   {
     key: 8,
@@ -71,5 +78,6 @@ export const myData = [
     name: "InterContinental",
     imgSrc: showcase8,
     avatarSrc: avatar8,
+    isLimited: true,
   },
 ];

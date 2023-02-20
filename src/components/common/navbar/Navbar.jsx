@@ -2,10 +2,9 @@ import { faBars, faTimes, faWallet } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
-import profile from "../../assets/images/profile.jpg";
-import "../../assets/js/script";
-import "../../App.css";
+import logo from "../../../assets/images/logo.png";
+import profile from "../../../assets/images/profile.jpg";
+import "../../../App.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

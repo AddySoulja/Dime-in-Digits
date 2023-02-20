@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../common/Navbar";
+import Navbar from "../common/navbar/Navbar";
 import "../../App.css";
-import BackTopBtn from "../common/BackTopBtn";
+import BackTopBtn from "../common/backToTop/BackTopBtn";
 
 const Wallet = () => {
   return (

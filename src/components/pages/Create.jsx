@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../common/Footer";
-import Navbar from "../common/Navbar";
+import Footer from "../common/footer/Footer";
+import Navbar from "../common/navbar/Navbar";
 import "../../App.css";
-import BackTopBtn from "../common/BackTopBtn";
+import BackTopBtn from "../common/backToTop/BackTopBtn";
 
 const Create = () => {
   return (
