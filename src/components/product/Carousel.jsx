@@ -1,7 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBackward,
+  faCheckCircle,
+  faForward,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { myData } from "./data";
+import { Link } from "react-router-dom";
 const Collection = () => {
   const [slidesOnDisplay, setSlidesOnDisplay] = useState([]);
   const [currSlidePos, setCurrSlidePos] = useState({
@@ -89,7 +94,12 @@ const Collection = () => {
                 </figure>
 
                 <div className="card-content">
-                  <div className="card-profile">
+                  <div
+                    className="card-profile"
+                    style={{
+                      display: "flex",
+                    }}
+                  >
                     <img
                       src={item.avatarSrc}
                       width="64"
@@ -98,23 +108,30 @@ const Collection = () => {
                       alt="CutieGirl profile"
                     ></img>
 
-                    <ion-icon
+                    <FontAwesomeIcon
+                      icon={faCheckCircle}
                       name="checkmark-circle"
                       aria-hidden="true"
-                    ></ion-icon>
+                      style={{
+                        marginTop: "auto",
+                        position: "relative",
+                        left: "-10px",
+                        color: "#059467",
+                      }}
+                    ></FontAwesomeIcon>
                   </div>
 
                   <h3 className="title-md card-title">
-                    <a href="/" className="link:hover">
+                    <Link to="/" className="link:hover">
                       {item.title}
-                    </a>
+                    </Link>
                   </h3>
 
                   <p className="label-md card-author">
                     by{" "}
-                    <a href="/" className="link">
+                    <Link to="/" className="link">
                       {item.name}
-                    </a>
+                    </Link>
                   </p>
 
                   <p className="card-text">25 Items</p>

@@ -1,15 +1,11 @@
 import React from "react";
-import { myData } from "../product/data";
 import rupee from "../../assets/images/rupee.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBoltLightning,
-  faStopwatch,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBolt, faStopwatch } from "@fortawesome/free-solid-svg-icons";
 
-const Collection = ({ setItem }) => {
-  return myData.map((item) => (
+const Collection = ({ setItem, data }) => {
+  return data.map((item) => (
     <Link to={`/explore/id:${item.key}`}>
       <li onClick={() => setItem(item)}>
         <div class="discover-card card">
@@ -28,7 +24,7 @@ const Collection = ({ setItem }) => {
 
             <button class="btn btn-primary">
               <FontAwesomeIcon
-                icon={faBoltLightning}
+                icon={faBolt}
                 name="flash"
                 aria-hidden="true"
               ></FontAwesomeIcon>
@@ -84,7 +80,7 @@ const Collection = ({ setItem }) => {
                   alt="ethereum icon"
                 ></img>
 
-                <span class="span">3.5</span>
+                <span class="span">{item.price}</span>
               </div>
             </div>
 
@@ -100,7 +96,7 @@ const Collection = ({ setItem }) => {
                   alt="ethereum icon"
                 ></img>
 
-                <span class="span">3.55</span>
+                <span class="span">{item.highestBid}</span>
               </div>
             </div>
           </div>

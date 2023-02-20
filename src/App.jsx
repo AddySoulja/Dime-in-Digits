@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from "./components/pages/About";
-import Create from "./components/pages/Create";
 import Dashboard from "./components/pages/Dashboard";
 import Explore from "./components/pages/Explore";
 import Wallet from "./components/pages/Wallet";
 import "./App.css";
 import DisplayItem from "./components/product/DisplayItem";
+import Sellers from "./components/pages/Sellers";
+import Create from "./components/pages/Create";
 
 function App() {
   const [item, setItem] = useState({});
+  const [itemsInWallet, setItemsInWallet] = useState([]);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -21,19 +22,19 @@ function App() {
     },
     {
       path: "/wallet",
-      element: <Wallet />,
+      element: <Wallet itemsInWallet={itemsInWallet} />,
+    },
+    {
+      path: "/sellers",
+      element: <Sellers />,
     },
     {
       path: "/create",
       element: <Create />,
     },
     {
-      path: "/about-us",
-      element: <About />,
-    },
-    {
       path: "/explore/:id",
-      element: <DisplayItem item={item} />,
+      element: <DisplayItem item={item} setItemsInWallet={setItemsInWallet} />,
     },
   ]);
   return (

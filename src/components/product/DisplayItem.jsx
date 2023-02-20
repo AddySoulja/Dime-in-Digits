@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../common/navbar/Navbar";
 import Footer from "../common/footer/Footer";
 import BackTopBtn from "../common/backToTop/BackTopBtn";
@@ -6,7 +6,8 @@ import rupee from "../../assets/images/rupee.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
-const DisplayItem = ({ item }) => {
+const DisplayItem = ({ item, setItemsInWallet }) => {
+  const [highestBid, setHighestBid] = useState(item.highestBid);
   return (
     <>
       <Navbar />
@@ -80,7 +81,7 @@ const DisplayItem = ({ item }) => {
                       alt="ethereum icon"
                     ></img>
 
-                    <span class="span">3.5</span>
+                    <span class="span">{item.price}</span>
                   </div>
                 </div>
 
@@ -96,14 +97,23 @@ const DisplayItem = ({ item }) => {
                       alt="ethereum icon"
                     ></img>
 
-                    <span class="span">3.55</span>
+                    <span class="span">{item.highestBid}</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className="input-bid-block">
-              <input type="number" className="input-bid"></input>
-              <button class="btn btn-primary" style={{ marginRight: "8px" }}>
+              <input
+                type="number"
+                value={highestBid}
+                className="input-bid"
+                onChange={(e) => setHighestBid(e.target.value)}
+              ></input>
+              <button
+                class="btn btn-primary"
+                style={{ marginRight: "8px" }}
+                onClick={() => setItemsInWallet((prev) => [...prev, item])}
+              >
                 <FontAwesomeIcon
                   icon={faCartPlus}
                   name="flash"

@@ -52,8 +52,8 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link to="/wallet" className="navbar-link label-lg link:hover">
-                Wallet
+              <Link to="/sellers" className="navbar-link label-lg link:hover">
+                Sellers
               </Link>
             </li>
 
@@ -62,19 +62,15 @@ const Navbar = () => {
                 Create
               </Link>
             </li>
-
-            <li>
-              <Link to="/about-us" className="navbar-link label-lg link:hover">
-                About Us
-              </Link>
-            </li>
           </ul>
         </nav>
 
         <div className="header-action">
-          <button className="btn-icon primary" aria-label="wallet">
-            <FontAwesomeIcon icon={faWallet} style={{ color: "#FFFFFF" }} />
-          </button>
+          <Link to="/wallet">
+            <button className="btn-icon primary" aria-label="wallet">
+              <FontAwesomeIcon icon={faWallet} style={{ color: "#FFFFFF" }} />
+            </button>
+          </Link>
 
           <button
             className="btn-icon profil-btn"

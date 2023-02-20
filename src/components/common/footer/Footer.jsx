@@ -1,4 +1,10 @@
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../../assets/images/logo.png";
+import appstore from "../../../assets/images/appstore.png";
+import playstore from "../../../assets/images/playstore.png";
 
 const Footer = () => {
   const [activeList, setActiveList] = useState({
@@ -217,7 +223,7 @@ const Footer = () => {
             <div className="footer-brand">
               <a href="/">
                 <img
-                  src="./assets/images/logo.svg"
+                  src={logo}
                   width="126"
                   height="28"
                   loading="lazy"
@@ -342,7 +348,7 @@ const Footer = () => {
                 <li className="footer-list-item">
                   <a href="/">
                     <img
-                      src="./assets/images/appstore.png"
+                      src={appstore}
                       width="134"
                       height="40"
                       loading="lazy"
@@ -352,7 +358,7 @@ const Footer = () => {
 
                   <a href="/">
                     <img
-                      src="./assets/images/playstore.png"
+                      src={playstore}
                       width="134"
                       height="40"
                       loading="lazy"
@@ -397,14 +403,18 @@ const Footer = () => {
         </div>
       </footer>
 
-      <a
+      <Link
         href="/top"
         className="back-to-top btn-icon"
         aria-label="back to top"
         data-back-top-btn
       >
-        <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
-      </a>
+        <FontAwesomeIcon
+          icon={faArrowUp}
+          name="arrow-up"
+          aria-hidden="true"
+        ></FontAwesomeIcon>
+      </Link>
 
       <div className="body-bg-shape"></div>
     </>

@@ -23,6 +23,8 @@ export const myData = [
     imgSrc: showcase1,
     avatarSrc: avatar1,
     isLimited: true,
+    price: 3.5,
+    highestBid: 5,
   },
   {
     key: 2,
@@ -31,6 +33,8 @@ export const myData = [
     imgSrc: showcase2,
     avatarSrc: avatar2,
     isLimited: true,
+    price: 8,
+    highestBid: 10,
   },
   {
     key: 3,
@@ -39,6 +43,8 @@ export const myData = [
     imgSrc: showcase3,
     avatarSrc: avatar3,
     isLimited: true,
+    price: 3.5,
+    highestBid: 3.5,
   },
   {
     key: 4,
@@ -47,6 +53,8 @@ export const myData = [
     imgSrc: showcase4,
     avatarSrc: avatar4,
     isLimited: false,
+    price: 2,
+    highestBid: 3,
   },
   {
     key: 5,
@@ -55,6 +63,8 @@ export const myData = [
     imgSrc: showcase5,
     avatarSrc: avatar5,
     isLimited: false,
+    price: 5,
+    highestBid: 15,
   },
   {
     key: 6,
@@ -63,6 +73,8 @@ export const myData = [
     imgSrc: showcase6,
     avatarSrc: avatar6,
     isLimited: true,
+    price: 6,
+    highestBid: 10,
   },
   {
     key: 7,
@@ -71,6 +83,8 @@ export const myData = [
     imgSrc: showcase7,
     avatarSrc: avatar7,
     isLimited: false,
+    price: 4.5,
+    highestBid: 6,
   },
   {
     key: 8,
@@ -79,5 +93,7 @@ export const myData = [
     imgSrc: showcase8,
     avatarSrc: avatar8,
     isLimited: true,
+    price: 5,
+    highestBid: 8,
   },
 ];
