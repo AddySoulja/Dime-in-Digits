@@ -9,8 +9,8 @@ import Sellers from "./components/pages/Sellers";
 import Create from "./components/pages/Create";
 
 function App() {
-  const [item, setItem] = useState({});
-  const [itemsInWallet, setItemsInWallet] = useState([]);
+  const [wallet, setWallet] = useState([]);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -18,11 +18,11 @@ function App() {
     },
     {
       path: "/explore",
-      element: <Explore setItem={setItem} />,
+      element: <Explore />,
     },
     {
       path: "/wallet",
-      element: <Wallet itemsInWallet={itemsInWallet} />,
+      element: <Wallet wallet={wallet} setWallet={setWallet} />,
     },
     {
       path: "/sellers",
@@ -34,7 +34,7 @@ function App() {
     },
     {
       path: "/explore/:id",
-      element: <DisplayItem item={item} setItemsInWallet={setItemsInWallet} />,
+      element: <DisplayItem wallet={wallet} setWallet={setWallet} />,
     },
   ]);
   return (

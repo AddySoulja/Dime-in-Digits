@@ -6,8 +6,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { myData } from "./data";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Collection = () => {
+  const navigate = useNavigate();
   const [slidesOnDisplay, setSlidesOnDisplay] = useState([]);
   const [currSlidePos, setCurrSlidePos] = useState({
     start: 0,
@@ -65,8 +66,12 @@ const Collection = () => {
   // //   return clearTimeout(sliderInterval);
   // // });
 
-  // useEffect(() => setCurrentSlide(), [setCurrentSlide]);
+  // useEffect(() => setInterval(console.log("timer"), 3500), []);
 
+  // setInterval(() => slideNext(), 3000);
+  const displayItem = (item) => {
+    navigate("/explore/:id");
+  };
   return (
     <>
       {" "}
@@ -77,67 +82,69 @@ const Collection = () => {
           data-slider-container
         >
           {slidesOnDisplay.map((item) => (
-            <li className="slider-item" key={item.key}>
-              <div className="collection-card card">
-                <figure
-                  className="card-banner img-holder"
-                  style={{ width: "500", height: "500" }}
-                >
-                  <img
-                    src={item.imgSrc}
-                    width="500"
-                    height="500"
-                    loading="lazy"
-                    alt="Digital Collection"
-                    className="img-cover"
-                  ></img>
-                </figure>
-
-                <div className="card-content">
-                  <div
-                    className="card-profile"
-                    style={{
-                      display: "flex",
-                    }}
+            <Link to={`/explore/id${item.key}`}>
+              <li className="slider-item" key={item.key} onClick={displayItem}>
+                <div className="collection-card card">
+                  <figure
+                    className="card-banner img-holder"
+                    style={{ width: "500", height: "500" }}
                   >
                     <img
-                      src={item.avatarSrc}
-                      width="64"
-                      height="64"
+                      src={item.imgSrc}
+                      width="500"
+                      height="500"
                       loading="lazy"
-                      alt="CutieGirl profile"
+                      alt="Digital Collection"
+                      className="img-cover"
                     ></img>
+                  </figure>
 
-                    <FontAwesomeIcon
-                      icon={faCheckCircle}
-                      name="checkmark-circle"
-                      aria-hidden="true"
+                  <div className="card-content">
+                    <div
+                      className="card-profile"
                       style={{
-                        marginTop: "auto",
-                        position: "relative",
-                        left: "-10px",
-                        color: "#059467",
+                        display: "flex",
                       }}
-                    ></FontAwesomeIcon>
+                    >
+                      <img
+                        src={item.avatarSrc}
+                        width="64"
+                        height="64"
+                        loading="lazy"
+                        alt="CutieGirl profile"
+                      ></img>
+
+                      <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        name="checkmark-circle"
+                        aria-hidden="true"
+                        style={{
+                          marginTop: "auto",
+                          position: "relative",
+                          left: "-10px",
+                          color: "#059467",
+                        }}
+                      ></FontAwesomeIcon>
+                    </div>
+
+                    <h3 className="title-md card-title">
+                      <Link to="/" className="link:hover">
+                        {item.title}
+                      </Link>
+                    </h3>
+
+                    <p className="label-md card-author">
+                      by{" "}
+                      <Link to="/" className="link">
+                        {item.name}
+                      </Link>
+                    </p>
+
+                    <p className="card-text">25 Items</p>
                   </div>
-
-                  <h3 className="title-md card-title">
-                    <Link to="/" className="link:hover">
-                      {item.title}
-                    </Link>
-                  </h3>
-
-                  <p className="label-md card-author">
-                    by{" "}
-                    <Link to="/" className="link">
-                      {item.name}
-                    </Link>
-                  </p>
-
-                  <p className="card-text">25 Items</p>
                 </div>
-              </div>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
 

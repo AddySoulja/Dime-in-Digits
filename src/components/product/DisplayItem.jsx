@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../common/navbar/Navbar";
 import Footer from "../common/footer/Footer";
 import BackTopBtn from "../common/backToTop/BackTopBtn";
 import rupee from "../../assets/images/rupee.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { myData } from "./data";
+import { useNavigate, useParams } from "react-router-dom";
 
-const DisplayItem = ({ item, setItemsInWallet }) => {
-  const [highestBid, setHighestBid] = useState(item.highestBid);
+const DisplayItem = ({ wallet, setWallet }) => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [onDisplay] = useState(myData[id]);
+  const [highestBid, setHighestBid] = useState(onDisplay.highestBid);
+
+  const addToWallet = () => {
+    if (!wallet.includes(onDisplay)) {
+      setWallet((prev) => [...prev, onDisplay]);
+      navigate("/wallet");
+      return;
+    }
+    alert("Item already in Wallet !");
+  };
   return (
     <>
       <Navbar />
@@ -19,12 +33,12 @@ const DisplayItem = ({ item, setItemsInWallet }) => {
               paddingTop: "13rem",
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
               justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <h1 style={{ paddingBottom: "3rem", fontSize: "24px" }}>
-              {item.title}
+              {onDisplay.title}
             </h1>
             <div
               class="discover-card card"
@@ -38,7 +52,7 @@ const DisplayItem = ({ item, setItemsInWallet }) => {
                 style={{ width: "500", height: "500" }}
               >
                 <img
-                  src={item.imgSrc}
+                  src={onDisplay.imgSrc}
                   width="500"
                   height="500"
                   loading="lazy"
@@ -49,7 +63,7 @@ const DisplayItem = ({ item, setItemsInWallet }) => {
 
               <div class="card-profile">
                 <img
-                  src={item.avatarSrc}
+                  src={onDisplay.avatarSrc}
                   width="32"
                   height="32"
                   loading="lazy"
@@ -58,13 +72,13 @@ const DisplayItem = ({ item, setItemsInWallet }) => {
                 ></img>
 
                 <a href="/" class="link:hover">
-                  @{item.name}
+                  @{onDisplay.name}
                 </a>
               </div>
 
               <h3 class="title-sm card-title">
                 <a href="/" class="link:hover">
-                  {item.title}
+                  {onDisplay.title}
                 </a>
               </h3>
 
@@ -81,7 +95,7 @@ const DisplayItem = ({ item, setItemsInWallet }) => {
                       alt="ethereum icon"
                     ></img>
 
-                    <span class="span">{item.price}</span>
+                    <span class="span">{onDisplay.price}</span>
                   </div>
                 </div>
 
@@ -97,7 +111,7 @@ const DisplayItem = ({ item, setItemsInWallet }) => {
                       alt="ethereum icon"
                     ></img>
 
-                    <span class="span">{item.highestBid}</span>
+                    <span class="span">{onDisplay.highestBid}</span>
                   </div>
                 </div>
               </div>
@@ -107,12 +121,16 @@ const DisplayItem = ({ item, setItemsInWallet }) => {
                 type="number"
                 value={highestBid}
                 className="input-bid"
-                onChange={(e) => setHighestBid(e.target.value)}
+                onChange={(e) => {
+                  e.target.value < onDisplay.highestBid
+                    ? setHighestBid(onDisplay.highestBid)
+                    : setHighestBid(e.target.value);
+                }}
               ></input>
               <button
                 class="btn btn-primary"
                 style={{ marginRight: "8px" }}
-                onClick={() => setItemsInWallet((prev) => [...prev, item])}
+                onClick={addToWallet}
               >
                 <FontAwesomeIcon
                   icon={faCartPlus}

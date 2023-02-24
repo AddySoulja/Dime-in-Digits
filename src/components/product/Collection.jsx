@@ -3,11 +3,12 @@ import rupee from "../../assets/images/rupee.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt, faStopwatch } from "@fortawesome/free-solid-svg-icons";
+import { myData } from "./data";
 
-const Collection = ({ setItem, data }) => {
-  return data.map((item) => (
-    <Link to={`/explore/id:${item.key}`}>
-      <li onClick={() => setItem(item)}>
+const Collection = () => {
+  return myData.map((item) => (
+    <Link to={`/explore/${item.key - 1}`}>
+      <li>
         <div class="discover-card card">
           <div
             class="card-banner img-holder"

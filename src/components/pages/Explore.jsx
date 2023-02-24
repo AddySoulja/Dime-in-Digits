@@ -7,9 +7,8 @@ import Collection from "../product/Collection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faForward } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { myData } from "../product/data";
 
-const Explore = ({ setItem }) => {
+const Explore = () => {
   return (
     <>
       <Navbar />
@@ -26,7 +25,7 @@ const Explore = ({ setItem }) => {
               </h2>
 
               <ul class="grid-list">
-                <Collection setItem={setItem} data={myData} />
+                <Collection />
               </ul>
 
               <Link to="/" class="btn-link link:hover">

@@ -23,15 +23,15 @@ const Navbar = () => {
         <Link to="/">
           <img
             src={logo}
-            width="40"
-            height="40"
+            width="52"
+            height="52"
             alt="Dime-in-Digits home"
             className="logo-small"
           ></img>
           <img
             src={logo}
-            width="126"
-            height="28"
+            width="62"
+            height="62"
             alt="Dime-in-Digits home"
             className="logo"
           ></img>
