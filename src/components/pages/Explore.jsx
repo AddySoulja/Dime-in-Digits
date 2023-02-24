@@ -19,7 +19,7 @@ const Explore = () => {
               <h2
                 class="headline-md section-title text-center"
                 id="discover-label"
-                style={{ marginTop: "5rem" }}
+                style={{ marginTop: "5rem", height: "1.8rem" }}
               >
                 Discover Collection
               </h2>

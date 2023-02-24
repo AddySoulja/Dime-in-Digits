@@ -16,7 +16,7 @@ const Sellers = () => {
               <h2
                 class="headline-md section-title text-center"
                 id="sellers-label"
-                style={{ marginTop: "5rem" }}
+                style={{ marginTop: "5rem", height: "1.8rem" }}
               >
                 Best Creators & Sellers
               </h2>

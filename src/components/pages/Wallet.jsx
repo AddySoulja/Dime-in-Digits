@@ -4,6 +4,7 @@ import BackTopBtn from "../common/backToTop/BackTopBtn";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faDoorOpen,
   faForward,
   faStopwatch,
   faTrash,
@@ -46,13 +47,13 @@ const Wallet = ({ wallet, setWallet }) => {
               <h2
                 class="headline-md section-title text-center"
                 id="discover-label"
-                style={{ marginTop: "5rem" }}
+                style={{ marginTop: "5rem", height: "0" }}
               >
                 Items in Wallet
               </h2>
 
               {wallet.length > 0 ? (
-                <ul class="grid-list">
+                <ul class="grid-list" style={{ marginTop: "2rem" }}>
                   {wallet.map((item) => (
                     <Link to={`/explore/${item.key - 1}`}>
                       <li>
@@ -180,9 +181,9 @@ const Wallet = ({ wallet, setWallet }) => {
                 ></img>
                 {walletValue}
               </div>
-              <Link to="/" class="btn-link link:hover">
+              <Link to="/explore" className="btn-link link:hover">
+                <FontAwesomeIcon icon={faDoorOpen}></FontAwesomeIcon>
                 <span class="span">Explore More</span>
-
                 <FontAwesomeIcon
                   icon={faForward}
                   name="arrow-forward"

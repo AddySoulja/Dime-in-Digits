@@ -14,7 +14,17 @@ const Dashboard = () => {
       <Navbar />
       <main>
         <article>
-          <section className="section hero" aria-label="home">
+          <section
+            className="section hero"
+            aria-label="home"
+            style={{
+              paddingTop: "13rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <div className="container">
               <h1 className="headline-lg hero-title">
                 Discover rate collection or{" "}

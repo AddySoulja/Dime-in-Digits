@@ -1,4 +1,10 @@
-import { faBars, faTimes, faWallet } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faPerson,
+  faTimes,
+  faUser,
+  faWallet,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -26,25 +32,19 @@ const Navbar = () => {
             width="52"
             height="52"
             alt="Dime-in-Digits home"
-            className="logo-small"
+            className="logo-small logoPlus"
           ></img>
           <img
             src={logo}
-            width="62"
-            height="62"
+            width="68"
+            height="68"
             alt="Dime-in-Digits home"
-            className="logo"
+            className="logo logoPlus"
           ></img>
         </Link>
 
         <nav className={isOpen ? "active navbar" : "navbar"} data-navbar>
           <ul className="navbar-list">
-            <li>
-              <Link to="/" className="navbar-link label-lg link:hover">
-                Home
-              </Link>
-            </li>
-
             <li>
               <Link to="/explore" className="navbar-link label-lg link:hover">
                 Explore
@@ -68,22 +68,21 @@ const Navbar = () => {
         <div className="header-action">
           <Link to="/wallet">
             <button className="btn-icon primary" aria-label="wallet">
-              <FontAwesomeIcon icon={faWallet} style={{ color: "#FFFFFF" }} />
+              <FontAwesomeIcon icon={faWallet} className="nav-btn" />
             </button>
           </Link>
 
-          <button
-            className="btn-icon profil-btn"
-            aria-label="Dime-in-Digits account: Fiona doe"
-          >
-            <img
-              src={profile}
-              width="50"
-              height="50"
-              alt="Fiona doe"
-              className="img-cover"
-            ></img>
-          </button>
+          <Link to="/profile">
+            <button
+              className="btn-icon primary"
+              aria-label="Dime-in-Digits account: Username"
+            >
+              <FontAwesomeIcon
+                icon={faUser}
+                className="nav-btn"
+              ></FontAwesomeIcon>
+            </button>
+          </Link>
 
           <button
             className={isOpen ? "active nav-toggle-btn" : "nav-toggle-btn"}

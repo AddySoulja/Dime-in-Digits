@@ -48,7 +48,7 @@ export const myData = [
   },
   {
     key: 4,
-    title: "Photography Collection",
+    title: "Photo Collection",
     name: "BigBull",
     imgSrc: showcase4,
     avatarSrc: avatar4,

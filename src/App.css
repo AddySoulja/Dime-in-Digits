@@ -397,6 +397,12 @@ body {
     gap: 32px;
 }
 
+.nav-btn {
+    border: none;
+    width: 20px;
+    height: 20px;
+    color: #FFFFFF;
+}
 
 
 
@@ -1053,8 +1059,10 @@ body {
     transform: translateY(-10px);
 }
 
-
-
+.logoPlus:hover{
+    background-color: rgba(0, 255, 255, 0.747);
+    border-radius: 100%;
+}
 
 
 /*-----------------------------------*\
@@ -1077,7 +1085,18 @@ body {
         margin-inline: auto;
     }
 
-
+    .left {
+                    
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+                     
+    }
+    .right {
+        margin-top: auto;
+    }
 
     /**
    * HEADER

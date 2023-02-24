@@ -69,8 +69,8 @@ const Collection = () => {
   // useEffect(() => setInterval(console.log("timer"), 3500), []);
 
   // setInterval(() => slideNext(), 3000);
-  const displayItem = (item) => {
-    navigate("/explore/:id");
+  const displayItem = (id) => {
+    navigate(`/explore/${id}`);
   };
   return (
     <>
@@ -82,7 +82,11 @@ const Collection = () => {
           data-slider-container
         >
           {slidesOnDisplay.map((item) => (
-            <li className="slider-item" key={item.key} onClick={displayItem}>
+            <li
+              className="slider-item"
+              key={item.key}
+              onClick={() => displayItem(item.key)}
+            >
               <div className="collection-card card">
                 <figure
                   className="card-banner img-holder"

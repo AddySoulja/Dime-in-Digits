@@ -7,6 +7,7 @@ import "./App.css";
 import DisplayItem from "./components/product/DisplayItem";
 import Sellers from "./components/pages/Sellers";
 import Create from "./components/pages/Create";
+import Profile from "./components/pages/Profile";
 
 function App() {
   const [wallet, setWallet] = useState([]);
@@ -35,6 +36,10 @@ function App() {
     {
       path: "/explore/:id",
       element: <DisplayItem wallet={wallet} setWallet={setWallet} />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
     },
   ]);
   return (
