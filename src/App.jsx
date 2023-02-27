@@ -8,10 +8,12 @@ import DisplayItem from "./components/product/DisplayItem";
 import Sellers from "./components/pages/Sellers";
 import Create from "./components/pages/Create";
 import Profile from "./components/pages/Profile";
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { cartReducer } from "./redux/reducers/cartReducer";
+import { popupReducer } from "./redux/reducers/popupReducer";
 
 function App() {
-  const [wallet, setWallet] = useState([]);
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -23,7 +25,7 @@ function App() {
     },
     {
       path: "/wallet",
-      element: <Wallet wallet={wallet} setWallet={setWallet} />,
+      element: <Wallet />,
     },
     {
       path: "/sellers",
@@ -35,17 +37,25 @@ function App() {
     },
     {
       path: "/explore/:id",
-      element: <DisplayItem wallet={wallet} setWallet={setWallet} />,
+      element: <DisplayItem />,
     },
     {
       path: "/profile",
       element: <Profile />,
     },
   ]);
+
+  const store = configureStore({
+    reducer: combineReducers({
+      cart: cartReducer,
+      popup: popupReducer,
+    }),
+  });
+
   return (
-    <body id="top">
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </body>
+    </Provider>
   );
 }
 

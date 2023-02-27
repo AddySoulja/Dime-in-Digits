@@ -26,8 +26,10 @@ const Dashboard = () => {
             }}
           >
             <div className="container">
+              <br />
               <h1 className="headline-lg hero-title">
-                Discover rate collection or{" "}
+                Discover rare collection
+                <br />
                 <span className="span">Arts & NFTs</span>
               </h1>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../common/navbar/Navbar";
 import Footer from "../common/footer/Footer";
 import BackTopBtn from "../common/backToTop/BackTopBtn";
@@ -6,22 +6,15 @@ import rupee from "../../assets/images/rupee.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { myData } from "./data";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const DisplayItem = ({ wallet, setWallet }) => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [onDisplay] = useState(myData[id]);
   const [highestBid, setHighestBid] = useState(onDisplay.highestBid);
 
-  const addToWallet = () => {
-    if (!wallet.includes(onDisplay)) {
-      setWallet((prev) => [...prev, onDisplay]);
-      navigate("/wallet");
-      return;
-    }
-    alert("Item already in Wallet !");
-  };
   return (
     <>
       <Navbar />
@@ -130,7 +123,10 @@ const DisplayItem = ({ wallet, setWallet }) => {
               <button
                 class="btn btn-primary"
                 style={{ marginRight: "8px" }}
-                onClick={addToWallet}
+                onClick={() => {
+                  dispatch({ type: "add-to-cart", payload: onDisplay });
+                  dispatch({ type: "item-added" });
+                }}
               >
                 <FontAwesomeIcon
                   icon={faCartPlus}

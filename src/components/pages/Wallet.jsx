@@ -11,15 +11,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 import rupee from "../../assets/images/rupee.png";
-const Wallet = ({ wallet, setWallet }) => {
-  const [walletValue, setWalletValue] = useState(0);
+import { useDispatch, useSelector } from "react-redux";
 
-  const removeItem = (e, item) => {
-    e.preventDefault();
-    const id = wallet.findIndex((each) => each.key === item.key);
-    wallet.splice(id, 1);
-    setWallet([...wallet]);
-  };
+const Wallet = ({ setWallet }) => {
+  const [walletValue, setWalletValue] = useState(0);
+  const wallet = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let total = 0;
@@ -73,7 +70,13 @@ const Wallet = ({ wallet, setWallet }) => {
 
                             <button
                               class="btn btn-primary"
-                              onClick={(e) => removeItem(e, item)}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                dispatch({
+                                  type: "remove-from-cart",
+                                  payload: item.key,
+                                });
+                              }}
                             >
                               <FontAwesomeIcon
                                 icon={faTrash}
@@ -181,6 +184,27 @@ const Wallet = ({ wallet, setWallet }) => {
                 ></img>
                 {walletValue}
               </div>
+              {wallet.length > 0 ? (
+                <button
+                  class="btn btn-primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    dispatch({
+                      type: "empty-cart",
+                    });
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    name="flash"
+                    aria-hidden="true"
+                  ></FontAwesomeIcon>
+
+                  <span class="span">Empty Cart!</span>
+                </button>
+              ) : (
+                ""
+              )}
               <Link to="/explore" className="btn-link link:hover">
                 <FontAwesomeIcon icon={faDoorOpen}></FontAwesomeIcon>
                 <span class="span">Explore More</span>

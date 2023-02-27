@@ -1483,3 +1483,11 @@ body {
     }
 
 }
+
+.popup {
+    display: block;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    background-color: #FFFFFF;
+}

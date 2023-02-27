@@ -31,9 +31,9 @@ const Collection = () => {
     setCurrentSlide();
   }, [setCurrentSlide]);
 
-  const moveSliderItem = () => {
-    setSliderStyle({ transform: `translateX(-${300}px)` });
-  };
+  // const moveSliderItem = () => {
+  //   setSliderStyle({ transform: `translateX(-${300}px)` });
+  // };
   // useEffect(() => {
   //   moveSliderItem();
   // });
@@ -74,7 +74,6 @@ const Collection = () => {
   };
   return (
     <>
-      {" "}
       <div className="slider" data-slider>
         <ul
           className="slider-container"
